@@ -20,10 +20,17 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id="platform-verification-plugin.tests"
+    id="platform-verification-plugin-tests"
     version="0.0.1">
-    <name>Cordova Testable Plugin Tests</name>
+    <name>Platform Verification Plugin Tests</name>
+
     <js-module src="tests.js" name="tests">
     </js-module>
+
     <dependency id="cordova-plugin-device" />
+
+    <preference name="PLATFORM" />
+    <preference name="VERSION" />
+    <preference name="MODEL" />
+    <hook type="after_plugin_add" src="scripts/replacePlatformVersionInTestsJs.js" />
 </plugin>

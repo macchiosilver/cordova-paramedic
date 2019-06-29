@@ -25,11 +25,11 @@ exports.defineAutoTests = function () {
     describe('Platform-Verification: windows.device', function () {
 
         it('.platform should be correct', function () {
-            expect(window.device.platform).toEqual('foo');
+            expect(window.device.platform.toLowerCase()).toEqual('foo');
         });
 
         it('.version should be correct', function () {
-            expect(window.device.version).toEqual('1.2.3');
+            expect(window.device.version).toContain('1.2');
         });
 
         it('.model should be correct', function () {
