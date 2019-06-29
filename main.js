@@ -28,7 +28,7 @@ var USAGE = 'Error missing args. \n' +
     '\n' +
     'cordova-paramedic --platform PLATFORM --plugin PATH [--justbuild --timeout MSECS --startport PORTNUM --endport PORTNUM --version ...]\n' +
     '\n' +
-    'required parameters (unless --config was used):\n' +
+    'Required parameters (unless --config was used):\n' +
     "--platform PLATFORM : the platform id. Currently supports 'ios', 'browser', 'windows', 'android'.\n" +
                     '\tPath to platform can be specified as link to git repo like:\n' +
                     '\twindows@https://github.com/apache/cordova-windows.git\n' +
@@ -136,13 +136,13 @@ if (argv.version) {
         paramedicConfig.setUseTunnel(argv.useTunnel);
     }
 
-    // externalServerUrl?
+    // TODO externalServerUrl
 
-    // port?
+    // TODO port
 
     // Test configuration
 
-    // timeout?
+    // TODO timeout
 
     if (argv.outputDir) {
         paramedicConfig.setOutputDir(argv.outputDir);
