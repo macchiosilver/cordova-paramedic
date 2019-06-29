@@ -33,7 +33,7 @@ exports.defineAutoTests = function () {
         });
 
         it('.model should be correct', function () {
-            expect(window.device.model).toEqual('bar');
+            expect(window.device.model.toLowerCase()).toEqual('bar');
         });
 
     });
