@@ -22,7 +22,7 @@
 /* eslint-env jasmine */
 
 exports.defineAutoTests = function () {
-    describe('Platform-Verification: windows.device', function () {
+    describe('Platform-Verification: window.device', function () {
 
         it('.platform should be correct', function () {
             expect(window.device.platform.toLowerCase()).toEqual('foo');
