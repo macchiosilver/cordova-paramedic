@@ -11,7 +11,7 @@ image:
 
 environment:
   PLATFORM: windows-10-store
-#  JUST_BUILD: --justBuild # why?
+  JUST_BUILD: --justBuild # why?
   matrix:
     - nodejs_version: "12"
 
