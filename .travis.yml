@@ -107,7 +107,7 @@ before_install:
   # manually install Node for `language: android`
   - |
     if [[ "$PLATFORM" =~ android ]]; then 
-      if [[ "$TRAVIS_OS_NAME" != 'windows' ]]; # Windows image already uses ok node
+      if [[ "$TRAVIS_OS_NAME" != 'windows' ]]; then # Windows image already uses ok node
         nvm install $TRAVIS_NODE_VERSION;
       fi
     fi  
