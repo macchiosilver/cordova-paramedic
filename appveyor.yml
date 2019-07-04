@@ -33,5 +33,3 @@ build: off
 test_script:
   - cordova-paramedic --config pr\%PLATFORM% --plugin "./spec/testable-plugin/" %JUST_BUILD%
 #  - cordova-paramedic --config pr\%PLATFORM% --plugin . %JUST_BUILD% # this only makes sense on plugin repo
-  - npm run test-appveyor
-  
