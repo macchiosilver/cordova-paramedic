@@ -1,5 +1,5 @@
 {
-    "platform": "windows@https://github.com/apache/cordova-windows#janpio-admin",
+    "platform": "windows",
     "action": "run",
     "args": " -- --appx=uap --archs=x64",
     "cleanUpAfterRun": true,
