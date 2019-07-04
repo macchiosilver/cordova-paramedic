@@ -52,7 +52,13 @@ matrix:
 
     - env: PLATFORM=local/browser
       <<: *_windows
-    - env: PLATFORM: windows-10-store JUST_BUILD: --justBuild 
+    - env: PLATFORM=local/android-5.1
+      <<: *_windows
+    - env: PLATFORM=local/ios-10.0
+      <<: *_windows
+    - env: PLATFORM=local/windows-10-store JUST_BUILD=--justBuild 
+      <<: *_windows
+    - env: PLATFORM=windows-10-store JUST_BUILD=--justBuild 
       <<: *_windows
 
     # many tests with saucelabs
