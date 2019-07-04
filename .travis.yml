@@ -35,19 +35,24 @@ _android: &_android
       - 'android-sdk-license-.+'
       - 'google-gdk-license-.+'
 
+_windows: &_windows
+  os: windows
+  
 matrix:
   include:
     # additional `npm test` in directory
     - env: ADDITIONAL_TESTS_DIR=./spec/testable-plugin/tests/foo
       <<: *_ios
-    
+
     # local tests, without saucelabs
     - env: PLATFORM=local/browser
       <<: *_ios
-    - env: PLATFORM=local/browser
-      os: windows
     - env: PLATFORM=local/ios-10.0
       <<: *_ios
+    - env: PLATFORM=local/browser
+      <<: *_windows
+    - env: PLATFORM: windows-10-store JUST_BUILD: --justBuild 
+      <<: *_windows
 
     # many tests with saucelabs
     - env: PLATFORM=browser-chrome
@@ -56,7 +61,7 @@ matrix:
     - env: PLATFORM=browser-edge
     
     - env: PLATFORM=browser-firefox
-      os: windows
+      <<: *_windows
 
     - env: PLATFORM=ios-11.3
       <<: *_ios
@@ -79,7 +84,7 @@ matrix:
       <<: *_android
     - env: PLATFORM=android-9.0
       <<: *_android
-
+  
 before_install:
   # manually install Node for `language: android`
   - if [[ "$PLATFORM" =~ android ]]; then nvm install $TRAVIS_NODE_VERSION; fi 
@@ -121,5 +126,5 @@ script:
   - if [[ "$ADDITIONAL_TESTS_DIR" != "" ]]; then
       cd $ADDITIONAL_TESTS_DIR && npm install && npm test;
     else 
-      $PARAMEDIC_COMMAND --config ./pr/$PLATFORM --plugin $PARAMEDIC_PLUGIN_TO_TEST --buildName $PARAMEDIC_BUILDNAME; 
+      $PARAMEDIC_COMMAND --config ./pr/$PLATFORM --plugin $PARAMEDIC_PLUGIN_TO_TEST --buildName $PARAMEDIC_BUILDNAME $JUST_BUILD; 
     fi
