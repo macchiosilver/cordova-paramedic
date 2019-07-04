@@ -105,7 +105,12 @@ matrix:
   
 before_install:
   # manually install Node for `language: android`
-  - if [[ "$PLATFORM" =~ android ]]; then nvm install $TRAVIS_NODE_VERSION; fi 
+  - |
+    if [[ "$PLATFORM" =~ android ]]; then 
+      if [[ "$TRAVIS_OS_NAME" != 'windows' ]]; # Windows image already uses ok node
+        nvm install $TRAVIS_NODE_VERSION
+      fi
+    fi  
   - node --version
   - if [[ "$PLATFORM" =~ android ]]; then gradle --version; fi
   - if [[ "$PLATFORM" =~ ios ]]; then npm install -g ios-deploy; fi
