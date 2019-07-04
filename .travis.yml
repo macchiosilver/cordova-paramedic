@@ -143,6 +143,10 @@ before_script:
     echo "PLATFORM=$PLATFORM"
     echo "PARAMEDIC_PLUGIN_TO_TEST=$PARAMEDIC_PLUGIN_TO_TEST"
     echo "PARAMEDIC_BUILDNAME=$PARAMEDIC_BUILDNAME"
+  - where msbuild
+  - IF NOT EXIST "%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" ( echo "no vswhere" ) ELSE "%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere" -property installationPath -products * -all"
+  - IF NOT EXIST "%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" ( echo "no vswhere" ) ELSE "%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere" -property installationPath -all"
+  - IF NOT EXIST "%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" ( echo "no vswhere" ) ELSE "%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere" -property installationPath -legacy"
 
 script:
   - $TEST_COMMAND
