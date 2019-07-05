@@ -1,5 +1,5 @@
 {
-    "platform": "windows@github:apache/cordova-windows#janpio-fail_on_no_msbuild",
+    "platform": "windows@github:apache/cordova-windows#janpio-fail_on_no_msbuild2",
     "action": "run",
     "args": " -- --appx=uap --archs=x64",
     "cleanUpAfterRun": true,
